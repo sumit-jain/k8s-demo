@@ -61,6 +61,7 @@ func handleRequests() {
 	server.HandleFunc("/", homePage)
 	server.HandleFunc("/articles", returnAllArticles)
 	server.HandleFunc("/article/{id}", returnSingleArticle)
+	http.Handle("/", server)
 	log.Fatal(http.ListenAndServe(":"+port, server))
 }
 
