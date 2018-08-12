@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Article struct {
@@ -26,14 +27,20 @@ func returnAllArticles(w http.ResponseWriter, r *http.Request) {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the HomePage!")
+	fmt.Fprintf(w, "Welcome to My HomePage!")
 	fmt.Println("Endpoint Hit: homePage")
 }
 
 func handleRequests() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/all", returnAllArticles)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	port := "8080"
+	if fromEnv := os.Getenv("PORT"); fromEnv != "" {
+		port = fromEnv
+	}
+
+	server := http.NewServeMux()
+	server.HandleFunc("/", homePage)
+	server.HandleFunc("/all", returnAllArticles)
+	log.Fatal(http.ListenAndServe(":"+port, server))
 }
 
 func main() {
