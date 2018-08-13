@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: demo-svc
-        image: gcr.io/kubernetes-demo-212517/demo-svc:v1
+        image: gcr.io/kubernetes-demo-212517/demo-svc:latest
         ports:
         - containerPort: 8080
