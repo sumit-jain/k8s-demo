@@ -1,6 +1,6 @@
 FROM golang:1.8-alpine
 ADD . /go/src/demo-svc
-RUN go get github.com/gorilla/mux
+RUN go get -d github.com/gorilla/mux
 RUN go install demo-svc
 
 FROM alpine:latest
