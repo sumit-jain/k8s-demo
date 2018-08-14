@@ -68,5 +68,6 @@ func handleRequests() {
 func main() {
 	articles = append(articles, Article{Id: "1", Title: "Hello", Desc: "Article Description", Content: "Article Content"})
 	articles = append(articles, Article{Id: "2", Title: "Hello 2", Desc: "Article Description2", Content: "Article Content2"})
+	articles = append(articles, Article{Id: "3", Title: "Hello 3", Desc: "Article Description3", Content: "Article Content3"})
 	handleRequests()
 }
