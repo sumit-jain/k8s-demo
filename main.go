@@ -22,13 +22,7 @@ type Articles []Article
 var articles Articles
 
 func returnAllArticles(w http.ResponseWriter, r *http.Request) {
-
-	//articles := Articles{
-	//	Article{Id: "1", Title: "Hello", Desc: "Article Description", Content: "Article Content"},
-	//	Article{Id: "2", Title: "Hello 2", Desc: "Article Description2", Content: "Article Content2"},
-	//}
 	fmt.Println("Endpoint Hit: returnAllArticles")
-
 	json.NewEncoder(w).Encode(articles)
 }
 
@@ -47,7 +41,7 @@ func returnSingleArticle(w http.ResponseWriter, r *http.Request) {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to My HomePage!")
+	fmt.Fprintf(w, "Welcome to My Sumit's Page!")
 	fmt.Println("Endpoint Hit: homePage")
 }
 
@@ -68,6 +62,5 @@ func handleRequests() {
 func main() {
 	articles = append(articles, Article{Id: "1", Title: "Hello", Desc: "Article Description", Content: "Article Content"})
 	articles = append(articles, Article{Id: "2", Title: "Hello 2", Desc: "Article Description2", Content: "Article Content2"})
-	articles = append(articles, Article{Id: "3", Title: "Hello 3", Desc: "Article Description3", Content: "Article Content3"})
 	handleRequests()
 }
