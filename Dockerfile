@@ -5,7 +5,7 @@ RUN go install demo-svc
 FROM alpine
 WORKDIR /go/src/demo-svc
 COPY --from=build-env /go/src/demo-svc /go/src/demo-svc
-RUN chown nobody:nogroup /app
+RUN chown nobody:nogroup /go
 USER nobody
 ENTRYPOINT /go/bin/demo-svc
 ENV PORT 8080
