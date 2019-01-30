@@ -3,7 +3,7 @@ ADD . /go/src/demo-svc
 RUN go get -d github.com/gorilla/mux
 RUN go install demo-svc
 FROM alpine
-WORKDIR /app
+WORKDIR /go/src/demo-svc
 COPY --from=build-env /go/src/demo-svc /go/src/demo-svc
 RUN chown nobody:nogroup /app
 USER nobody
